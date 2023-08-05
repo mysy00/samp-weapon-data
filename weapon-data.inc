@@ -11,7 +11,7 @@
 
 #include <a_samp>
 
-#define MAX_WEAPONS (50)
+#define SS_MAX_WEAPONS (50)
 #define MAX_WEAPON_NAME (15)
 
 
@@ -35,7 +35,7 @@ enum E_WEAPON_DATA {
 }
 
 
-stock const WeaponData[MAX_WEAPONS][E_WEAPON_DATA] = {
+stock const WeaponData[SS_MAX_WEAPONS][E_WEAPON_DATA] = {
 //  A                   B       C       D       E       F       G       H           I           J
     {"Fist",            000,    1,      0,      0.1,    1.0,    0.0,    2.0,        0,          1.6},       // 0
     {"Knuckle Duster",  331,    1,      1,      1.5,    2.0,    0.0,    2.0,        0,          1.6},       // 1
@@ -111,7 +111,7 @@ stock const WeaponData[MAX_WEAPONS][E_WEAPON_DATA] = {
 
 // Returns the in-game model for a weapon
 stock GetWeaponModel(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0;
     }
 
@@ -120,25 +120,16 @@ stock GetWeaponModel(weaponid) {
 
 // Returns the magazine size for a bullet-based weapon
 stock GetWeaponMagSize(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0;
     }
 
     return WeaponData[weaponid][weapon_magSize];
 }
 
-// Returns the GTA slot for a weapon
-stock GetWeaponSlot(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
-        return 0;
-    }
-
-    return WeaponData[weaponid][weapon_slot];
-}
-
 // Returns the minimum damage for a weapon
 stock Float:GetWeaponMinDamage(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0.0;
     }
 
@@ -147,7 +138,7 @@ stock Float:GetWeaponMinDamage(weaponid) {
 
 // Returns the maximum damage for a weapon
 stock Float:GetWeaponMaxDamage(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0.0;
     }
 
@@ -156,7 +147,7 @@ stock Float:GetWeaponMaxDamage(weaponid) {
 
 // Sets the minimum damage for a weapon
 stock SetWeaponMinDamage(weaponid, &Float:damage) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 1;
     }
 
@@ -166,7 +157,7 @@ stock SetWeaponMinDamage(weaponid, &Float:damage) {
 
 // Sets the maximum damage for a weapon
 stock SetWeaponMaxDamage(weaponid, &Float:damage) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 1;
     }
 
@@ -176,7 +167,7 @@ stock SetWeaponMaxDamage(weaponid, &Float:damage) {
 
 // Returns the minimum range for a weapon, at this range the weapon deals the maximum damage
 stock Float:GetWeaponMinRange(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0.0;
     }
 
@@ -185,7 +176,7 @@ stock Float:GetWeaponMinRange(weaponid) {
 
 // Returns the maximum range for a weapon, at this range the weapon deals the minimum damage
 stock Float:GetWeaponMaxRange(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0.0;
     }
 
@@ -194,7 +185,7 @@ stock Float:GetWeaponMaxRange(weaponid) {
 
 // Sets the minimum range for a weapon, at this range the weapon deals the maximum damage
 stock SetWeaponMinRange(weaponid, &Float:range) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 1;
     }
 
@@ -204,7 +195,7 @@ stock SetWeaponMinRange(weaponid, &Float:range) {
 
 // Sets the maximum range for a weapon, at this range the weapon deals the minimum damage
 stock SetWeaponMaxRange(weaponid, &Float:range) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 1;
     }
 
@@ -214,7 +205,7 @@ stock SetWeaponMaxRange(weaponid, &Float:range) {
 
 // Returns the interval between shots in milliseconds
 stock GetWeaponShotInterval(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0;
     }
 
@@ -223,7 +214,7 @@ stock GetWeaponShotInterval(weaponid) {
 
 // Returns the rate of fire in RPM (Rounds per Minute)
 stock Float:GetWeaponRateOfFire(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0.0;
     }
 
@@ -232,7 +223,7 @@ stock Float:GetWeaponRateOfFire(weaponid) {
 
 // Returns the game-set maximum range that a weapon can hit players at
 stock Float:GetWeaponRangeCap(weaponid) {
-    if(!(0 <= weaponid < MAX_WEAPONS)) {
+    if(!(0 <= weaponid < SS_MAX_WEAPONS)) {
         return 0.0;
     }
 
